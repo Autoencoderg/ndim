@@ -72,7 +72,7 @@ printArray array'
   | length limited == length array' = show limited
   | otherwise                       = (init $ show limited) ++ ",...]"
   where
-    limited = V.take 100 array'
+    limited = V.take 20 array'
 
 printFull :: Show a => NDim a -> String
 printFull (ND header' array') =
@@ -86,7 +86,8 @@ printFull (ND header' array') =
 fromList :: Dims -> [a] -> NDim a
 {-# INLINE fromList #-}
 fromList dims' list
-  | check = ND (NDH dims' (getStrides dims')) (V.fromList list)
+  | check     = ND (NDH dims' (getStrides dims')) (V.fromList list)
+  | otherwise = error "Length of list does not match dimensions provided."
   where
     check = length list == product dims'
 
