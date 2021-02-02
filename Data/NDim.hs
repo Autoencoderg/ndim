@@ -1,4 +1,4 @@
-module Data.NDim2 where
+module Data.NDim where
 
 import Prelude
 import Data.List
