@@ -47,4 +47,4 @@ normal gen mean std dims' =
                        inverseZ mean std (boxMuller x y))
                      list1 list2
   in
-    (fromList dims' normalled, gen')
+    (fromList dims' normalled, gen'')
